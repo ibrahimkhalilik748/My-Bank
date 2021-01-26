@@ -1,0 +1,39 @@
+body{
+    padding: 100px;
+}
+.login-box{
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+#next-area{
+    display: none;
+}
+
+.account{
+    width: 80%;
+    margin: auto;
+}
+.common{
+    padding: 20px;
+    margin: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+.deposit{
+    background-color: slateblue;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.Balance{
+    background-color: orange;
+}
+.box{
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+}

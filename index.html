@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-area">
+        <h1 class="text-center">Welcome to My Bank</h1>
+        <div class="login-box">
+            <h4>Log In</h4>
+            <input class="form-control" type="email" placeholder="email"><br>
+            <input class="form-control" type="password" name="" id="" placeholder="password"><br>
+            <button id="login" class="btn btn-success">Log In</button>
+        </div>
+    </div>
+    <div id="next-area">
+        <div class="row account">
+            <div class="col-md-4">
+                <div class="common deposit">
+                    <h6>Deposit</h6>
+                    <h2>$ <span id="currantAmount">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="common withdraw">
+                    <h6>Withdraw</h6>
+                    <h2>$ <span id="currantWithdraw">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="common Balance">
+                    <h6>Balance</h6>
+                    <h2>$ <span id="currentBalance">1240</span></h2>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row account">
+            <div class="col-md-6">
+                <div class="box">
+                    <h5>Deposit</h5>
+                    <input id="deposit-amount" class="form-control" type="text" placeholder="$ amount you wont to Withdraw"><br>
+                    <button id="deposit" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box">
+                    <h5>Withdraw</h5>
+                    <input id="withdraw-amount" class="form-control" type="text" placeholder="$ amount you wont to Withdraw"><br>
+                    <button id="withdraw" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bank.js"></script>
+
+    <script>
+       
+        
+const depositBtn = document.getElementById("deposit");
+    depositBtn.addEventListener("click", function(){
+        const depositNumber = updateBtn("deposit-amount");
+        
+            updateSpamText("currantAmount", depositNumber);
+            updateSpamText("currentBalance", depositNumber);
+
+            document.getElementById("deposit-amount").value = "";
+})
+
+
+const withdrawBtn = document.getElementById("withdraw");
+    withdrawBtn.addEventListener("click", function(){
+            const withdrawNumber = updateBtn("withdraw-amount");
+            
+            updateSpamText("currantWithdraw", withdrawNumber);
+            updateSpamText("currentBalance", -1 * withdrawNumber);
+
+            document.getElementById("withdraw-amount").value = "";
+})
+
+function updateSpamText (id, depositNumber){
+                const addCurrent = document.getElementById(id).innerText;
+                const currentNumber = parseFloat(addCurrent);
+                const total = depositNumber + currentNumber;
+
+                document.getElementById(id).innerText = total;
+            }
+
+
+
+
+
+function updateBtn (id){
+    const amount = document.getElementById(id).value;
+            const number = parseFloat(amount);
+            return number;
+
+}
+
+        
+        
+    </script>
+</body>
+</html>
